@@ -8,13 +8,19 @@
 
 import urllib.request
 import sys
+import traceback
 import random
 import os.path
 
 def download_image(url, filename):
     print("downloading: " + url + " as " + filename)
     with open(filename,'wb') as f:
-        f.write(urllib.request.urlopen(url).read())
+        try:
+            req = urllib.request.urlopen(url)
+            f.write(req.read())
+        except:
+            traceback.print_exc()
+            
         
 def _get_url(n1, n2):
     """
@@ -30,7 +36,7 @@ if __name__ == '__main__':
     random.seed(12345271829)
     for i in range(0, num_to_grab):
         n1 = random.randint(1001, 1200)
-        n2 = random.randint(0, 50)
+        n2 = random.randint(1, 50)
         path = "samples/sample{}_{}.jpg".format(n1, n2)
         if os.path.isfile(path):
             print("file already exists: {}".format(path))
