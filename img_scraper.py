@@ -2,7 +2,7 @@
     usage: "python3 img_scraper.py [n]"
     
     [n] is the number of (randomish) images to grab. Images will be named 
-    samplexxx.jpg and placed into samples/
+    samplexxx.jpg and placed into marathon/samples/
 
 """ 
 
@@ -37,7 +37,7 @@ if __name__ == '__main__':
     for i in range(0, num_to_grab):
         n1 = random.randint(1001, 1200)
         n2 = random.randint(1, 50)
-        path = "samples/sample{}_{}.jpg".format(n1, n2)
+        path = "marathon/samples/sample{}_{}.jpg".format(n1, n2)
         if os.path.isfile(path):
             print("file already exists: {}".format(path))
         else:

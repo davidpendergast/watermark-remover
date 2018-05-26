@@ -1,2 +1,2 @@
-.idea/
-venv/
+__pycache__/
+marathon/samples/*.jpg
